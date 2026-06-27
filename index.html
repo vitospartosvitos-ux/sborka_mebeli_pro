@@ -29,14 +29,14 @@
 
   <style>
     :root{
-      --bg:#090d18;
-      --card:rgba(16,22,40,.78);
-      --line:rgba(255,255,255,.08);
+      --bg:#060913;
+      --card:rgba(13, 19, 36, 0.85);
+      --line:rgba(139, 183, 255, 0.12);
       --text:#f3f6ff;
-      --muted:#a8b3cf;
+      --muted:#8fa0ca;
       --acc:#8bb7ff;
       --acc2:#c79bff;
-      --shadow:0 28px 80px rgba(0,0,0,.38);
+      --shadow:0 30px 100px rgba(0,0,0,0.6);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -45,9 +45,9 @@
       color:var(--text);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
-        radial-gradient(circle at 10% 0%, rgba(139,183,255,.14), transparent 22%),
-        radial-gradient(circle at 85% 12%, rgba(199,155,255,.10), transparent 20%),
-        linear-gradient(180deg, #090d18 0%, #070a13 100%);
+        radial-gradient(circle at 15% 0%, rgba(139,183,255,0.18), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(199,155,255,0.12), transparent 25%),
+        linear-gradient(180deg, #060913 0%, #04060d 100%);
       line-height:1.55;
       overflow-x:hidden;
     }
@@ -56,150 +56,149 @@
 
     .nav{
       display:flex;align-items:center;justify-content:space-between;gap:18px;
-      padding:10px 0 26px
+      padding:15px 0 35px
     }
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .brandMark{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,var(--acc),var(--acc2))}
-    .navlinks{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-0.02em}
+    .brandMark{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 0 20px rgba(139,183,255,0.4)}
+    .navlinks{display:flex;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:14px;font-weight:500}
+    .navlinks a:hover{color:var(--text);text-shadow:0 0 10px rgba(139,183,255,0.5)}
 
     .hero{
-      display:grid;grid-template-columns:1.08fr .92fr;
-      gap:28px;align-items:center;padding:24px 0 30px
+      display:grid;grid-template-columns:1.1fr 0.9fr;
+      gap:40px;align-items:center;padding:20px 0 50px
     }
     .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
-      border:1px solid var(--line);background:rgba(255,255,255,.03);color:#dce4ff;font-size:13px
+      display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;
+      border:1px solid var(--line);background:rgba(139,183,255,0.05);color:#dce4ff;font-size:13px;font-weight:600;letter-spacing:0.02em
     }
     h1{
-      font-size:clamp(42px,6vw,78px);
-      line-height:1.02;letter-spacing:-.05em;margin:18px 0 16px;max-width:11ch
+      font-size:clamp(42px,5.5vw,72px);
+      line-height:0.98;letter-spacing:-.04em;margin:22px 0 18px;max-width:12ch;
+      background: linear-gradient(135deg, #fff 40%, #b2cbfa 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .lead{font-size:clamp(16px,2vw,20px);color:#dbe2f7;max-width:60ch}
-    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .lead{font-size:clamp(16px,1.8vw,19px);color:#b3c1e4;max-width:55ch;line-height:1.6}
+    .ctaRow{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
     .btn{
-      min-height:54px;padding:14px 20px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;
-      font-weight:700;border:1px solid transparent;transition:.22s transform,.22s box-shadow;cursor:pointer
+      min-height:56px;padding:14px 28px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;
+      font-weight:700;font-size:15px;border:1px solid transparent;transition:.25s all ease;cursor:pointer
     }
-    .btn:hover{transform:translateY(-1px)}
-    .btnPrimary{background:linear-gradient(135deg,var(--acc),#9e7bff);color:#08101f;box-shadow:0 18px 50px rgba(139,183,255,.18)}
-    .btnGhost{background:rgba(255,255,255,.03);border-color:var(--line)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(139,183,255,0.25)}
+    .btnPrimary{background:linear-gradient(135deg,var(--acc),#9e7bff);color:#050a14;box-shadow:0 15px 45px rgba(139,183,255,0.25)}
+    .btnGhost{background:rgba(255,255,255,0.02);border-color:var(--line);color:#e2e9ff}
+    .btnGhost:hover{background:rgba(255,255,255,0.05);border-color:rgba(139,183,255,0.4)}
 
+    /* ЭКСКЛЮЗИВНЫЙ КИНЕМАТОГРАФИЧНЫЙ КЕЙС В КАРТОЧКЕ */
     .preview{
-      min-height:520px;border-radius:30px;background:linear-gradient(180deg, rgba(16,22,40,.86), rgba(10,14,25,.88));
-      border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;padding:22px;display:grid;align-content:end
+      min-height:500px;border-radius:28px;
+      background: linear-gradient(135deg, rgba(16,24,48,0.9), rgba(8,12,26,0.95)), url('images/sborka-shkafa-so-vstroennym-stolom.webp');
+      background-size: cover; background-position: center;
+      border:1px solid rgba(139,183,255,0.15);box-shadow:var(--shadow);overflow:hidden;padding:24px;display:grid;align-content:end
     }
     .previewCard{
-      border-radius:24px;background:rgba(6,9,18,.62);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);padding:18px
+      border-radius:20px;background:rgba(5,8,18,0.75);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(20px);padding:20px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.5);
     }
-    .previewCard h3{margin:0 0 8px;font-size:18px}
-    .previewCard p{margin:0 0 14px;color:var(--muted)}
-    .previewCard ul{margin:0;padding-left:18px;color:#e7edff}
-    .trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .trust span{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--line);color:#dbe4ff;font-size:13px}
-
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0 0}
-    .stat{padding:18px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
-    .stat b{display:block;font-size:24px;margin-bottom:6px}
-    .stat span{color:var(--muted);font-size:14px}
-
-    .section{padding:28px 0 8px;opacity:0;transform:translateY(18px);transition:.7s ease}
-    .section.show{opacity:1;transform:translateY(0)}
-    .section h2{margin:0 0 10px;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em}
-    .section p.sub{margin:0 0 18px;color:var(--muted);max-width:72ch}
-
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .mini,.step,.photo,.form{
-      padding:22px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)
-    }
-    .mini h3,.step h3,.photo h3{margin:12px 0 8px;font-size:18px}
-    .mini p,.step p,.photo p{margin:0;color:var(--muted)}
-    .icon{
-      width:46px;height:46px;border-radius:16px;display:grid;place-items:center;
-      background:linear-gradient(135deg, rgba(139,183,255,.14), rgba(199,155,255,.12));border:1px solid rgba(255,255,255,.10);font-size:22px
-    }
-
-    .photos{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px
-    }
-    .ph{
-      aspect-ratio:4/3;
-      border-radius:18px;
-      overflow:hidden;
-      background:#0b1020;
-      border:1px solid rgba(255,255,255,.08)
-    }
-    .ph img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block
-    }
-    .caption{margin-top:10px;color:var(--muted);font-size:13px}
-
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .num{font-size:13px;color:#d7dcf3}
-
-    /* ИДЕАЛЬНЫЙ СТИЛЬ ФОРМЫ (НЕ ДАЕТ РАСТЯГИВАТЬСЯ) */
-    .form {
-      max-width: 650px;
-      margin: 0 auto;
-    }
-    .form h2 {
-      font-size: 28px !important;
-      margin-bottom: 4px !important;
-    }
-    .form .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .field{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
-    .field label{font-size:13px;color:#cbd7ff}
-    .field input,.field textarea,.field select{
-      width:100%;background:#091022;border:1px solid rgba(255,255,255,.10);color:var(--text);border-radius:14px;padding:14px 14px;font:inherit;outline:none
-    }
-    .field textarea{min-height:110px;resize:vertical}
+    .previewCard h3{margin:0 0 6px;font-size:18px;color:#fff}
+    .previewCard p{margin:0 0 12px;color:var(--muted);font-size:14px}
+    .previewCard ul{margin:0;padding-left:18px;color:#e1e8ff;font-size:13.5px;line-height:1.5}
+    .previewCard li{margin-bottom:4px}
     
-    /* Выравниваем кнопки внутри формы */
+    .trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .trust span{padding:8px 14px;border-radius:999px;background:rgba(139,183,255,0.03);border:1px solid var(--line);color:#cbd7ff;font-size:13px}
+
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:35px 0 0}
+    .stat{padding:20px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .stat b{display:block;font-size:28px;margin-bottom:4px;background:linear-gradient(135deg, #fff, var(--acc)); -webkit-background-clip:text; background-clip: text; -webkit-text-fill-color:transparent;}
+    .stat span{color:var(--muted);font-size:13.5px;line-height:1.3}
+
+    .section{padding:45px 0 15px;opacity:0;transform:translateY(20px);transition:.8s cubic-bezier(0.16, 1, 0.3, 1)}
+    .section.show{opacity:1;transform:translateY(0)}
+    .section h2{margin:0 0 8px;font-size:clamp(28px,3.5vw,42px);letter-spacing:-.03em;color:#fff}
+    .section p.sub{margin:0 0 24px;color:var(--muted);max-width:70ch;font-size:15px}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .mini,.step,.photo,.form{
+      padding:26px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);
+      transition: 0.3s border-color, 0.3s transform;
+    }
+    .mini:hover{border-color:rgba(139,183,255,0.3);transform:translateY(-2px)}
+    .mini h3,.step h3,.photo h3{margin:16px 0 8px;font-size:19px;color:#fff}
+    .mini p,.step p,.photo p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+    .icon{
+      width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(139,183,255,0.15), rgba(199,155,255,0.1));border:1px solid rgba(139,183,255,0.2);font-size:22px
+    }
+
+    .photos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .ph{
+      aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#090d1a;
+      border:1px solid rgba(255,255,255,0.05);box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:0.5s transform}
+    .photo:hover .ph img{transform:scale(1.04)}
+    .caption{margin-top:12px;color:#b4c2e6;font-size:13.5px;line-height:1.4;font-weight:500}
+
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .step{position:relative}
+    .num{font-size:12px;font-weight:700;color:var(--acc);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px}
+
+    /* ПРЕМИАЛЬНАЯ СИММЕТРИЧНАЯ ФОРМА */
+    .form {
+      max-width: 620px;
+      margin: 0 auto;
+      border: 1px solid rgba(139,183,255,0.25);
+      background: linear-gradient(180deg, rgba(15,23,42,0.95) 0%, rgba(9,14,27,0.98) 100%);
+      position: relative;
+    }
+    .form::before {
+      content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--acc), var(--acc2), transparent);
+    }
+    .form h2 { font-size: 26px !important; margin-bottom: 4px !important; text-align: center }
+    .form p.form-sub { text-align: center; font-size: 14px; margin: 0 0 24px!important; color: var(--muted); }
+    .form .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+    .field label{font-size:13px;color:#a3b8cc;font-weight:600}
+    .field input,.field textarea,.field select{
+      width:100%;background:#060a14;border:1px solid rgba(139,183,255,0.15);color:var(--text);border-radius:12px;padding:14px 16px;font:inherit;outline:none;transition:0.25s border-color
+    }
+    .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--acc);box-shadow:0 0 12px rgba(139,183,255,0.1)}
+    .field textarea{min-height:100px;resize:vertical}
+    
     .form .ctaRow {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-      width: 100%;
+      display: flex; gap: 10px; margin-top: 24px; width: 100%;
     }
-    .form .ctaRow .btn {
-      flex: 1;
-      text-align: center;
-      white-space: nowrap;
-    }
+    .form .ctaRow .btn { flex: 1; text-align: center; }
 
     .footer{
-      padding:34px 0 18px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:24px
+      padding:40px 0 20px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:40px
     }
     .stickyBar{
-      position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;width:min(1120px,calc(100% - 16px));
-      display:flex;gap:10px;padding:10px;border-radius:20px;background:rgba(7,11,23,.74);border:1px solid rgba(255,255,255,.10);backdrop-filter:blur(16px);box-shadow:var(--shadow)
+      position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;width:min(700px,calc(100% - 24px));
+      display:flex;gap:8px;padding:8px;border-radius:18px;background:rgba(6,9,19,0.8);border:1px solid rgba(139,183,255,0.15);backdrop-filter:blur(20px);box-shadow:var(--shadow)
     }
-    .stickyBar a{flex:1;min-height:50px;display:flex;align-items:center;justify-content:center;border-radius:14px;font-weight:700}
-    .stickyBar .primary{background:linear-gradient(135deg,var(--acc),#9e7bff);color:#08101f}
-    .stickyBar .secondary{background:rgba(255,255,255,.03);border:1px solid var(--line)}
+    .stickyBar a{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:12px;font-weight:700;font-size:14px;transition:0.2s transform}
+    .stickyBar a:active{transform:scale(0.98)}
+    .stickyBar .primary{background:linear-gradient(135deg,var(--acc),#9e7bff);color:#050a14;box-shadow:0 8px 25px rgba(139,183,255,0.2)}
+    .stickyBar .secondary{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);color:#cbd7ff}
 
-    @media (max-width: 980px){
-      .hero,.cards,.steps{grid-template-columns:1fr}
+    @media (max-width: 1024px) {
+      .hero{grid-template-columns:1fr;gap:30px}
+      .preview{min-height:400px}
+    }
+    @media (max-width: 900px){
+      .cards,.steps{grid-template-columns:1fr}
       .photos{grid-template-columns:1fr 1fr}
       .stats{grid-template-columns:1fr 1fr}
-      .nav{flex-direction:column;align-items:flex-start}
-      h1{max-width:none}
+      .nav{flex-direction:column;align-items:flex-start;gap:14px;padding-bottom:15px}
     }
     @media (max-width: 560px){
       .stats,.form .grid2,.photos{grid-template-columns:1fr}
-      .wrap{padding:18px}
-      .stickyBar{width:calc(100% - 12px);bottom:10px;padding:8px}
-      .stickyBar a{min-height:48px;font-size:14px}
+      .wrap{padding:16px}
       .form .ctaRow { flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      *,*::before,*::after{animation:none!important;transition:none!important}
-      .section{opacity:1;transform:none}
     }
   </style>
 </head>
@@ -213,152 +212,149 @@
       </div>
       <nav class="navlinks">
         <a href="#services">Услуги</a>
-        <a href="#photos">Фото</a>
-        <a href="#process">Как работаем</a>
+        <a href="#photos">Фото работ</a>
+        <a href="#process">Процесс</a>
         <a href="#contact">Контакты</a>
       </nav>
     </header>
 
     <section class="hero">
       <div>
-        <span class="eyebrow">Москва • WhatsApp • MAX • Премиум сервис</span>
+        <span class="eyebrow">Москва и МО • Премиум качество</span>
         <h1>Сборка мебели без компромиссов</h1>
-        <p class="lead">Собираем шкафы, комоды, кровати и корпусную мебель. Точно по времени, аккуратно по месту и спокойно по процессу.</p>
+        <p class="lead">Собираем шкафы, комоды, кровати и элитную корпусную мебель. Точно по времени, идеально по зазорам и спокойно по процессу.</p>
         <div class="ctaRow">
-          <a class="btn btnPrimary" href="#contact">Оставить заявку</a>
-          <a class="btn btnGhost" href="gallery.html">Смотреть все работы</a>
           <a class="btn btnPrimary" href="#contact">Рассчитать стоимость</a>
-          <a class="btn btnGhost" href="https://wa.me/79990000000">WhatsApp</a>
-          <a class="btn btnGhost" href="https://max.ru/">MAX</a>
+          <a class="btn btnGhost" href="#photos">Смотреть наши работы</a>
         </div>
-        <div class="trust"><span>Ответ от 30 минут</span><span>Фото до/после</span><span>Гарантия на работу</span></div>
+        <div class="trust"><span>Ответ за 15 минут</span><span>Идеальные зазоры</span><span>Гарантия по договору</span></div>
         <div class="stats">
-          <div class="stat"><b>500+</b><span>собранных единиц мебели</span></div>
-          <div class="stat"><b>24/7</b><span>принимаем заявки в чат</span></div>
-          <div class="stat"><b>1 день</b><span>возможен срочный выезд</span></div>
+          <div class="stat"><b>500+</b><span>успешно собранных объектов</span></div>
+          <div class="stat"><b>24/7</b><span>онлайн-расчет по фото</span></div>
+          <div class="stat"><b>1 день</b><span>выезд в день обращения</span></div>
         </div>
       </div>
 
       <div class="preview">
         <div class="previewCard">
-          <div class="eyebrow">Фото-блок вместо карусели</div>
-          <h3>Реальные работы — главный аргумент</h3>
-          <p>Покажи 10–15 лучших фото, а не карусель.</p>
+          <h3>Фокус на деталях</h3>
+          <p>Сдаем работу только тогда, когда каждый фасад отрегулирован до миллиметра.</p>
           <ul>
-            <li>1 главный кадр сверху.</li>
-            <li>Ниже сетка из фото.</li>
-            <li>Подпись: объект, срок, результат.</li>
+            <li>Выравнивание геометрии корпусов</li>
+            <li>Плавный ход выдвижных систем</li>
+            <li>Чистота и порядок после сборки</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="section" id="services">
-      <h2>What we do</h2>
-      <p class="sub">Без перегруза. Только то, что нужно клиенту на старте.</p>
+      <h2>Наши услуги</h2>
+      <p class="sub">Работаем со всеми типами мебели — от базовых решений до сложных дизайнерских интерьерных систем.</p>
       <div class="cards">
-        <article class="mini"><div class="icon">🛠</div><h3>Сборка мебели</h3><p>Шкафы, комоды, кровати, столы, тумбы и корпусная мебель.</p></article>
-        <article class="mini"><div class="icon">📦</div><h3>Демонтаж и вынос</h3><p>Разбор старой мебели, вынос и подготовка помещения.</p></article>
-        <article class="mini"><div class="icon">🔩</div><h3>Мелкий монтаж</h3><p>Навеска, подгонка и регулировка фасадов по месту.</p></article>
+        <article class="mini"><div class="icon">🛠</div><h3>Сборка мебели</h3><p>Шкафы-купе, гардеробные, кровати, дизайнерские комоды и корпусные системы.</p></article>
+        <article class="mini"><div class="icon">📦</div><h3>Демонтаж и подготовка</h3><p>Аккуратный разбор старой мебели без повреждения стен, пола и подготовка места.</p></article>
+        <article class="mini"><div class="icon">🔩</div><h3>Финальный монтаж</h3><p>Навеска модулей, сложная врезка, подгонка и тонкая регулировка фурнитуры.</p></article>
       </div>
     </section>
 
     <section class="section" id="photos">
-      <h2>Наши реальные работы в Москве и МО</h2>
-      <p class="sub">Посмотрите примеры собранных нами шкафов и готовых офисных пространств. Работаем аккуратно, без царапин и зазоров.</p>
+      <h2>Примеры выполненных работ</h2>
+      <p class="sub">Реальные фотографии собранных шкафов, гостиных и офисных пространств нашими мастерами в Москве.</p>
 
       <div class="photos">
+        <!-- Блок: Офисная мебель (B2B) -->
         <div class="photo">
           <div class="ph">
-            <img src="images/sborka-ofisnogo-stola-peregovorov.webp" alt="Сборка большого овального стола переговоров в офисе, Москва" loading="lazy">
+            <img src="images/sborka-ofisnogo-stola-peregovorov.webp" alt="Сборка стола переговоров в Москве" loading="lazy">
           </div>
-          <div class="caption">Большой стол для переговорных зон и конференц-залов.</div>
+          <div class="caption">Стол для переговорных зон.</div>
         </div>
 
         <div class="photo">
           <div class="ph">
-            <img src="images/montazh-mebeli-v-ofise-pod-klyuch.webp" alt="Монтаж офисной мебели и угловых рабочих мест сотрудников под ключ" loading="lazy">
+            <img src="images/montazh-mebeli-v-ofise-pod-klyuch.webp" alt="Монтаж офисной мебели под ключ" loading="lazy">
           </div>
-          <div class="caption">Комплексное обустройство рабочих мест персонала у окна.</div>
+          <div class="caption">Комплексное обустройство рабочих мест персонала.</div>
         </div>
 
+        <!-- Блок: Шкафы и Системы хранения -->
         <div class="photo">
           <div class="ph">
-            <img src="images/montazh-vstroennogo-shkafa-kupe.webp" alt="Монтаж большого встроенного белого шкафа-купе во всю стену в квартире" loading="lazy">
+            <img src="images/montazh-vstroennogo-shkafa-kupe.webp" alt="Монтаж встроенного шкафа-купе" loading="lazy">
           </div>
           <div class="caption">Встроенный минималистичный шкаф-купе под потолок.</div>
         </div>
 
         <div class="photo">
           <div class="ph">
-            <img src="images/sborka-shkafa-so-vstroennym-stolom.webp" alt="Сборка белого шкафа со встроенным письменным столом и открытыми полками стеллажа" loading="lazy">
+            <img src="images/sborka-shkafa-so-vstroennym-stolom.webp" alt="Сборка шкафа со встроенным столом" loading="lazy">
           </div>
-          <div class="caption">Многофункциональный шкаф-трансформер со встроенным рабочим столом.</div>
+          <div class="caption">Шкаф-трансформер со встроенным рабочим столом.</div>
         </div>
 
         <div class="photo">
           <div class="ph">
-            <img src="images/sborka-knizhnogo-shkafa-vitriny.webp" alt="Профессиональная сборка классического книжного шкафа со стеклянными дверцами" loading="lazy">
+            <img src="images/sborka-knizhnogo-shkafa-vitriny.webp" alt="Профессиональная сборка книжного шкафа" loading="lazy">
           </div>
-          <div class="caption">Шкаф-витрина для книг и посуды с идеальной регулировкой петель.</div>
+          <div class="caption">Шкаф-витрина с идеальной регулировкой петель.</div>
         </div>
 
         <div class="photo">
           <div class="ph">
-            <img src="images/sborka-mebelnogo-garnitura-stenki.webp" alt="Сборка классической стенки, шкафов и мебельного гарнитура в гостиную" loading="lazy">
+            <img src="images/sborka-mebelnogo-garnitura-stenki.webp" alt="Сборка мебельной стенки" loading="lazy">
           </div>
           <div class="caption">Сложная многокомпонентная стенка в классическом стиле.</div>
         </div>
 
+        <!-- Блок: Комоды и тумбы -->
         <div class="photo">
           <div class="ph">
-            <img src="images/ustanovka-radiusnoj-tumby-pod-tv.webp" alt="Установка современной белой радиусной тумбы под телевизор с золотыми ручками" loading="lazy">
+            <img src="images/ustanovka-radiusnoj-tumby-pod-tv.webp" alt="Установка тумбы под телевизор" loading="lazy">
           </div>
           <div class="caption">Элегантная подвесная тумба со скругленными углами.</div>
         </div>
 
         <div class="photo">
           <div class="ph">
-            <img src="images/sborka-komoda-dlya-odezhdy.webp" alt="Профессиональная сборка деревянного комода с выдвижными ящиками" loading="lazy">
+            <img src="images/sborka-komoda-dlya-odezhdy.webp" alt="Профессиональная сборка комода" loading="lazy">
           </div>
-          <div class="caption">Вместительный комод. Четкая центровка направляющих для плавного хода.</div>
+          <div class="caption">Вместительный комод. Четкая центровка направляющих.</div>
         </div>
       </div>
     </section>
         
     <section class="section" id="process">
-      <h2>Как работаем</h2>
-      <p class="sub">Коротко и понятно, без лишних шагов.</p>
+      <h2>Как мы работаем</h2>
+      <p class="sub">Прозрачный и понятный процесс без скрытых переплат и затягивания сроков.</p>
       <div class="steps">
-        <article class="step"><div class="num">01</div><h3>Заявка</h3><p>Вы пишете в WhatsApp, MAX или через форму.</p></article>
-        <article class="step"><div class="num">02</div><h3>Уточнение</h3><p>Мы уточняем мебель, адрес, срок и детали.</p></article>
-        <article class="step"><div class="num">03</div><h3>Выезд</h3><p>Согласуем время и отправляем мастера.</p></article>
-        <article class="step"><div class="num">04</div><h3>Результат</h3><p>Собираем мебель, делаем фото и закрываем заказ.</p></article>
+        <article class="step"><div class="num">01</div><h3>Заявка</h3><p>Вы присылаете фото проекта или мебели в чат формы, WhatsApp или MAX.</p></article>
+        <article class="step"><div class="num">02</div><h3>Расчет</h3><p>Фиксируем стоимость сборки сразу, и она не меняется в процессе.</p></article>
+        <article class="step"><div class="num">03</div><h3>Выезд</h3><p>Мастер приезжает строго в назначенное время со своим инструментом.</p></article>
+        <article class="step"><div class="num">04</div><h3>Сдача</h3><p>Вы принимаете идеальную работу, проверяете механизмы и получаете гарантию.</p></article>
       </div>
     </section>
 
     <section class="section" id="contact">
-      <h2>Оставить заявку</h2>
-      <p class="sub">Короткая форма без лишних полей.</p>
       <form class="form">
-        <h2>Быстрый расчёт</h2>
-        <p style="margin:0 0 18px;color:var(--muted)">Оставьте данные, и мы свяжемся с вами.</p>
+        <h2>Быстрый расчёт стоимости</h2>
+        <p class="form-sub">Прикрепите детали проекта, и мы свяжемся с вами в течение 15 минут.</p>
         <div class="grid2">
           <div class="field"><label>Имя</label><input type="text" placeholder="Ваше имя"></div>
           <div class="field"><label>Телефон</label><input type="tel" placeholder="+7 (___) ___-__-__"></div>
         </div>
         <div class="grid2">
           <div class="field">
-            <label>Услуга</label>
+            <label>Что нужно сделать</label>
             <select>
               <option>Сборка мебели</option>
               <option>Демонтаж мебели</option>
-              <option>Мелкий монтаж</option>
+              <option>Мелкий монтаж / Регулировка</option>
             </select>
           </div>
-          <div class="field"><label>Район</label><input type="text" placeholder="Например, Москва, ЮЗАО"></div>
+          <div class="field"><label>Район / Адрес</label><input type="text" placeholder="Например, Москва, ЦАО"></div>
         </div>
-        <div class="field"><label>Комментарий</label><textarea placeholder="What to assemble, when, is there an elevator, are there photos available"></textarea></div>
+        <div class="field"><label>Комментарий к заказу</label><textarea placeholder="Укажите фабрику мебели, количество предметов, необходимость подъема или другие важные детали..."></textarea></div>
         <div class="ctaRow">
           <button class="btn btnPrimary" type="button">Отправить заявку</button>
           <a class="btn btnGhost" href="https://wa.me/79990000000">WhatsApp</a>
@@ -369,8 +365,8 @@
 
     <footer class="footer">
       <div>© 2026 Мастерская сборки</div>
-      <div>Москва • Сборка мебели • Быстрые заявки</div>
-    </footer >
+      <div>Москва • Премиальный сервис сборки мебели</div>
+    </footer>
   </div>
 
   <div class="stickyBar">
@@ -385,7 +381,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('show');
       });
-    }, { threshold: 0.14 });
+    }, { threshold: 0.12 });
     sections.forEach(s => io.observe(s));
   </script>
   <script src="js/script.js"></script>
