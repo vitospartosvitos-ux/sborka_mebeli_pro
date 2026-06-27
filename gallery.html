@@ -8,7 +8,6 @@
   <meta name="theme-color" content="#090d18">
   <link rel="canonical" href="https://example.com/gallery.html">
   <title>Фото работ — Сборка мебели в Москве</title>
-  <link rel="stylesheet" href="css/style.css">
   <style>
     :root{
       --bg:#090d18;
@@ -20,128 +19,449 @@
       --acc2:#c79bff;
       --shadow:0 28px 80px rgba(0,0,0,.38);
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
-      margin:0;
       color:var(--text);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background:
         radial-gradient(circle at 10% 0%, rgba(139,183,255,.14), transparent 22%),
         radial-gradient(circle at 85% 12%, rgba(199,155,255,.10), transparent 20%),
         linear-gradient(180deg, #090d18 0%, #070a13 100%);
+      background-attachment:fixed;
       line-height:1.55;
       overflow-x:hidden;
+      min-height:100vh;
     }
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1180px;margin:0 auto;padding:22px}
+
+    /* TOP NAV */
     .top{
       display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
-      padding:10px 0 26px
+      padding:10px 0 32px
     }
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .brandMark{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,var(--acc),var(--acc2))}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:15px}
+    .brandMark{
+      width:40px;height:40px;border-radius:14px;
+      background:linear-gradient(135deg,var(--acc),var(--acc2));
+      display:flex;align-items:center;justify-content:center;
+      font-size:18px;flex-shrink:0
+    }
     .back{
-      padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.03);
-      border:1px solid var(--line);font-weight:700
+      padding:11px 18px;border-radius:14px;background:rgba(255,255,255,.04);
+      border:1px solid var(--line);font-weight:700;font-size:14px;
+      transition:background .2s;
     }
+    .back:hover{background:rgba(255,255,255,.08)}
+
+    /* HERO */
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 14px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.04);
+      color:#dce4ff;font-size:13px;margin-bottom:18px
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0;
+      box-shadow:0 0 6px #4ade80}
     h1{
-      font-size:clamp(34px,5vw,64px);
-      line-height:1.03;letter-spacing:-.05em;margin:10px 0 10px
+      font-size:clamp(32px,5vw,60px);
+      line-height:1.04;letter-spacing:-.04em;margin-bottom:14px;
+      background:linear-gradient(135deg,#f3f6ff 30%,var(--acc));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
     }
-    .lead{color:var(--muted);max-width:72ch;font-size:18px}
+    .lead{color:var(--muted);max-width:68ch;font-size:17px;line-height:1.65;margin-bottom:10px}
+
+    /* STATS ROW */
+    .stats{
+      display:flex;gap:28px;flex-wrap:wrap;margin:24px 0 36px;
+      padding:20px 24px;
+      border-radius:20px;
+      background:rgba(16,22,40,.6);
+      border:1px solid var(--line);
+      width:fit-content
+    }
+    .stat{display:flex;flex-direction:column;gap:2px}
+    .stat-n{font-size:26px;font-weight:800;letter-spacing:-.03em;
+      background:linear-gradient(135deg,var(--acc),var(--acc2));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stat-l{font-size:12px;color:var(--muted);font-weight:500}
+
+    /* FILTER TABS */
+    .filters{
+      display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px
+    }
+    .ftab{
+      padding:9px 18px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;
+      border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);
+      transition:all .2s;user-select:none
+    }
+    .ftab:hover{background:rgba(255,255,255,.07);color:var(--text)}
+    .ftab.active{
+      background:linear-gradient(135deg,rgba(139,183,255,.18),rgba(199,155,255,.12));
+      border-color:rgba(139,183,255,.35);color:var(--acc)
+    }
+
+    /* GRID */
     .grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:14px;
-      margin-top:26px
     }
     .item{
-      border-radius:22px;
+      border-radius:20px;
       background:var(--card);
       border:1px solid var(--line);
       box-shadow:var(--shadow);
-      overflow:hidden
+      overflow:hidden;
+      cursor:pointer;
+      transition:transform .25s, box-shadow .25s, border-color .25s;
+      position:relative
+    }
+    .item:hover{
+      transform:translateY(-5px);
+      box-shadow:0 40px 100px rgba(0,0,0,.5);
+      border-color:rgba(139,183,255,.25)
     }
     .ph{
       aspect-ratio:4/3;
-      background:#0b1020
+      background:#0b1020;
+      overflow:hidden;
+      position:relative
     }
     .ph img{
-      width:100%;height:100%;object-fit:cover;display:block
+      width:100%;height:100%;object-fit:cover;display:block;
+      transition:transform .4s ease
     }
-    .cap{
-      padding:14px 14px 16px;
-      color:var(--muted);
-      font-size:13px
+    .item:hover .ph img{transform:scale(1.06)}
+    .ph-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(to top, rgba(9,13,24,.7) 0%, transparent 50%);
+      opacity:0;transition:opacity .25s
     }
+    .item:hover .ph-overlay{opacity:1}
+    .zoom-icon{
+      position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.7);
+      width:44px;height:44px;border-radius:50%;
+      background:rgba(255,255,255,.15);backdrop-filter:blur(8px);
+      display:flex;align-items:center;justify-content:center;
+      font-size:18px;opacity:0;transition:all .25s
+    }
+    .item:hover .zoom-icon{opacity:1;transform:translate(-50%,-50%) scale(1)}
+
+    .cap{padding:13px 15px 15px}
+    .cap-tag{
+      display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+      color:var(--acc);margin-bottom:6px;opacity:.8
+    }
+    .cap-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.35}
+    .cap-sub{font-size:12px;color:var(--muted);margin-top:3px}
+
+    /* CTA */
     .cta{
-      margin-top:28px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap
+      margin-top:40px;
+      display:flex;gap:12px;flex-wrap:wrap;align-items:center
     }
     .btn{
-      min-height:52px;padding:14px 18px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;
-      font-weight:700;border:1px solid transparent
+      min-height:52px;padding:14px 22px;border-radius:16px;display:inline-flex;align-items:center;
+      justify-content:center;font-weight:700;font-size:15px;border:1px solid transparent;
+      transition:all .2s;gap:8px
     }
-    .primary{background:linear-gradient(135deg,var(--acc),#9e7bff);color:#08101f}
-    .ghost{background:rgba(255,255,255,.03);border-color:var(--line)}
+    .primary{
+      background:linear-gradient(135deg,var(--acc),#9e7bff);color:#08101f;
+      box-shadow:0 8px 32px rgba(139,183,255,.25)
+    }
+    .primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(139,183,255,.35)}
+    .ghost{background:rgba(255,255,255,.04);border-color:var(--line);color:var(--text)}
+    .ghost:hover{background:rgba(255,255,255,.08)}
+    .cta-note{color:var(--muted);font-size:13px}
+
+    /* LIGHTBOX */
+    .lb{
+      position:fixed;inset:0;
+      background:rgba(4,7,16,.95);backdrop-filter:blur(12px);
+      display:grid;place-items:center;z-index:9999;padding:20px;
+      opacity:0;pointer-events:none;transition:opacity .22s
+    }
+    .lb.open{opacity:1;pointer-events:all}
+    .lb-inner{position:relative;max-width:min(1100px,96vw)}
+    .lb img{
+      max-width:100%;max-height:88vh;border-radius:18px;
+      box-shadow:0 40px 120px rgba(0,0,0,.7);display:block
+    }
+    .lb-close{
+      position:fixed;top:20px;right:20px;
+      width:44px;height:44px;border-radius:50%;
+      background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;font-size:20px;color:var(--text);
+      transition:background .2s
+    }
+    .lb-close:hover{background:rgba(255,255,255,.2)}
+    .lb-cap{
+      text-align:center;margin-top:14px;
+      color:var(--muted);font-size:14px
+    }
+    .lb-nav{
+      position:absolute;top:50%;transform:translateY(-50%);
+      width:44px;height:44px;border-radius:50%;
+      background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;font-size:20px;color:var(--text);transition:background .2s
+    }
+    .lb-nav:hover{background:rgba(255,255,255,.2)}
+    .lb-prev{left:-60px}
+    .lb-next{right:-60px}
+
+    /* FOOTER */
     .footer{
-      padding:34px 0 18px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:34px
+      padding:34px 0 18px;color:var(--muted);font-size:14px;
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      border-top:1px solid var(--line);margin-top:48px
     }
-    @media (max-width: 980px){ .grid{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width: 560px){ .grid{grid-template-columns:1fr} .wrap{padding:18px} }
+
+    @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){
+      .grid{grid-template-columns:1fr}
+      .wrap{padding:16px}
+      .stats{gap:20px;padding:16px 18px}
+      .lb-prev{left:-48px}.lb-next{right:-48px}
+    }
+    @media(max-width:400px){
+      .lb-prev,.lb-next{display:none}
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="top">
-      <div class="brand"><div class="brandMark"></div><div>Мастерская сборки</div></div>
+      <div class="brand">
+        <div class="brandMark">🔧</div>
+        <div>Мастерская сборки</div>
+      </div>
       <a class="back" href="index.html">← На главную</a>
     </div>
 
-    <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#dce4ff;font-size:13px;">Фото работ • Москва • Реальные объекты</span>
-    <h1>Галерея работ</h1>
-    <p class="lead">Здесь можно показать все 20 фото. Выбирай только лучшие кадры: чистые, ровные, без визуального шума. Подписи делай короткими и конкретными.</p>
+    <div class="badge"><span class="dot"></span> Реальные объекты • Москва • 2024–2026</div>
+    <h1>Наши работы</h1>
+    <p class="lead">Каждое фото — реальный объект, снятый сразу после сборки. Без фотошопа, без чужих картинок. Приедем и сделаем так же.</p>
 
-    <div class="grid">
-      <div class="item"><div class="ph"><img src="images/work-01.jpg" alt="Сборка шкафа в Москве"></div><div class="cap">Шкаф-купе, Москва.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-02.jpg" alt="Сборка кровати в Москве"></div><div class="cap">Кровать, аккуратная сборка.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-03.jpg" alt="Сборка комода в Москве"></div><div class="cap">Комод, выезд в день заявки.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-04.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Корпусная мебель, чистый монтаж.</div></div>
+    <div class="stats">
+      <div class="stat"><span class="stat-n">350+</span><span class="stat-l">выполненных сборок</span></div>
+      <div class="stat"><span class="stat-n">4.9★</span><span class="stat-l">средний рейтинг</span></div>
+      <div class="stat"><span class="stat-n">1 день</span><span class="stat-l">выезд в день заявки</span></div>
+      <div class="stat"><span class="stat-n">0</span><span class="stat-l">рекламаций за год</span></div>
+    </div>
 
-      <div class="item"><div class="ph"><img src="images/work-05.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Комплект мебели, Москва.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-06.jpg" alt="Монтаж мебели в Москве"></div><div class="cap">Монтаж и регулировка.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-07.jpg" alt="Сборка кухни в Москве"></div><div class="cap">Кухонный модуль.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-08.jpg" alt="Разбор мебели в Москве"></div><div class="cap">Разбор и вынос.</div></div>
+    <div class="filters">
+      <div class="ftab active" data-filter="all">Все работы</div>
+      <div class="ftab" data-filter="office">Офисная</div>
+      <div class="ftab" data-filter="wardrobe">Шкафы</div>
+      <div class="ftab" data-filter="storage">Комоды и тумбы</div>
+      <div class="ftab" data-filter="sets">Гарнитуры</div>
+    </div>
 
-      <div class="item"><div class="ph"><img src="images/work-09.jpg" alt="Сборка шкафа в Москве"></div><div class="cap">Шкаф, ровная сборка.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-10.jpg" alt="Сборка комода в Москве"></div><div class="cap">Комод, финальная проверка.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-11.jpg" alt="Сборка кровати в Москве"></div><div class="cap">Кровать, аккуратная подгонка.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-12.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Корпусная мебель.</div></div>
+    <div class="grid" id="grid">
 
-      <div class="item"><div class="ph"><img src="images/work-13.jpg" alt="Сборка шкафа в Москве"></div><div class="cap">Шкаф, выезд в день заявки.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-14.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Чистый монтаж.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-15.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Финальный результат.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-16.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Аккуратная установка.</div></div>
+      <div class="item" data-cat="office" data-img="montazh-mebeli-v-ofise-pod-klyuch.webp" data-title="Монтаж офисной мебели под ключ" data-sub="Рабочий стол + приставка, сборка и расстановка">
+        <div class="ph">
+          <img src="montazh-mebeli-v-ofise-pod-klyuch.webp" alt="Монтаж офисной мебели под ключ">
+          <div class="ph-overlay"></div>
+          <div class="zoom-icon">🔍</div>
+        </div>
+        <div class="cap">
+          <div class="cap-tag">Офис</div>
+          <div class="cap-title">Монтаж офисной мебели под ключ</div>
+          <div class="cap-sub">Рабочий стол + приставка</div>
+        </div>
+      </div>
 
-      <div class="item"><div class="ph"><img src="images/work-17.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Проект под ключ.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-18.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Сборка и уборка.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-19.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Монтаж по месту.</div></div>
-      <div class="item"><div class="ph"><img src="images/work-20.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Готовый результат.</div></div>
+      <div class="item" data-cat="wardrobe" data-img="montazh-vstroennogo-shkafa-kupe.webp" data-title="Встроенный шкаф — 6 секций" data-sub="Сборка и выравнивание по стене, плавный ход дверей">
+        <div class="ph">
+          <img src="montazh-vstroennogo-shkafa-kupe.webp" alt="Монтаж встроенного шкафа">
+          <div class="ph-overlay"></div>
+          <div class="zoom-icon">🔍</div>
+        </div>
+        <div class="cap">
+          <div class="cap-tag">Шкаф</div>
+          <div class="cap-title">Встроенный шкаф — 6 секций</div>
+          <div class="cap-sub">Выравнивание, регулировка петель</div>
+        </div>
+      </div>
+
+      <div class="item" data-cat="wardrobe" data-img="sborka-knizhnogo-shkafa-vitriny.webp" data-title="Книжный шкаф-витрина со стеклом" data-sub="Сборка корпуса, навеска стеклянных дверей">
+        <div class="ph">
+          <img src="sborka-knizhnogo-shkafa-vitriny.webp" alt="Сборка книжного шкафа витрины">
+          <div class="ph-overlay"></div>
+          <div class="zoom-icon">🔍</div>
+        </div>
+        <div class="cap">
+          <div class="cap-tag">Шкаф</div>
+          <div class="cap-title">Книжный шкаф-витрина</div>
+          <div class="cap-sub">Стеклянные двери, полки</div>
+        </div>
+      </div>
+
+      <div class="item" data-cat="storage" data-img="sborka-komoda-dlya-odezhdy.webp" data-title="Комод для одежды — 8 ящиков" data-sub="Сборка с регулировкой направляющих, ровный ход">
+        <div class="ph">
+          <img src="sborka-komoda-dlya-odezhdy.webp" alt="Сборка комода для одежды">
+          <div class="ph-overlay"></div>
+          <div class="zoom-icon">🔍</div>
+        </div>
+        <div class="cap">
+          <div class="cap-tag">Комод</div>
+          <div class="cap-title">Комод для одежды — 8 ящиков</div>
+          <div class="cap-sub">Ровный ход, все крепежи затянуты</div>
+        </div>
+      </div>
+
+      <div class="item" data-cat="sets" data-img="sborka-mebelnogo-garnitura-stenki.webp" data-title="Мебельный гарнитур — стенка в зал" data-sub="Сборка секций, состыковка, крепление к стене">
+        <div class="ph">
+          <img src="sborka-mebelnogo-garnitura-stenki.webp" alt="Сборка мебельного гарнитура стенки">
+          <div class="ph-overlay"></div>
+          <div class="zoom-icon">🔍</div>
+        </div>
+        <div class="cap">
+          <div class="cap-tag">Гарнитур</div>
+          <div class="cap-title">Стенка в зал — классика</div>
+          <div class="cap-sub">Состыковка 5 секций, крепление к стене</div>
+        </div>
+      </div>
+
+      <div class="item" data-cat="office" data-img="sborka-ofisnogo-stola-peregovorov.webp" data-title="Стол переговоров — овальная столешница" data-sub="Сборка из 2 частей, точная состыковка">
+        <div class="ph">
+          <img src="sborka-ofisnogo-stola-peregovorov.webp" alt="Сборка офисного стола переговоров">
+          <div class="ph-overlay"></div>
+          <div class="zoom-icon">🔍</div>
+        </div>
+        <div class="cap">
+          <div class="cap-tag">Офис</div>
+          <div class="cap-title">Стол переговоров, овал</div>
+          <div class="cap-sub">Сборка из 2 частей, точная состыковка</div>
+        </div>
+      </div>
+
+      <div class="item" data-cat="wardrobe" data-img="sborka-shkafa-so-vstroennym-stolom.webp" data-title="Шкаф со встроенным рабочим столом" data-sub="Детская / молодёжная, компактное решение">
+        <div class="ph">
+          <img src="sborka-shkafa-so-vstroennym-stolom.webp" alt="Сборка шкафа со встроенным столом">
+          <div class="ph-overlay"></div>
+          <div class="zoom-icon">🔍</div>
+        </div>
+        <div class="cap">
+          <div class="cap-tag">Шкаф + стол</div>
+          <div class="cap-title">Шкаф со встроенным столом</div>
+          <div class="cap-sub">Детская, компактное решение</div>
+        </div>
+      </div>
+
+      <div class="item" data-cat="storage" data-img="ustanovka-radiusnoj-tumby-pod-tv.webp" data-title="Радиусная тумба под ТВ с золотыми ручками" data-sub="Сборка радиусного корпуса, настройка дверей">
+        <div class="ph">
+          <img src="ustanovka-radiusnoj-tumby-pod-tv.webp" alt="Установка радиусной тумбы под ТВ">
+          <div class="ph-overlay"></div>
+          <div class="zoom-icon">🔍</div>
+        </div>
+        <div class="cap">
+          <div class="cap-tag">Тумба</div>
+          <div class="cap-title">Радиусная тумба под ТВ</div>
+          <div class="cap-sub">Золотые ручки, скруглённый корпус</div>
+        </div>
+      </div>
+
     </div>
 
     <div class="cta">
-      <a class="btn primary" href="Lending.html#contact">Оставить заявку</a>
-      <a class="btn ghost" href="https://wa.me/79990000000">WhatsApp</a>
+      <a class="btn primary" href="index.html#contact">Оставить заявку</a>
+      <a class="btn ghost" href="https://wa.me/79990000000">💬 WhatsApp</a>
+      <span class="cta-note">Ответим за 10 минут · Выезд в день заявки</span>
     </div>
 
     <footer class="footer">
       <div>© 2026 Мастерская сборки</div>
-      <div>Москва • Сборка мебели • Фото работ</div>
+      <div>Москва · Сборка мебели · Реальные фото работ</div>
     </footer>
   </div>
-   <script src="js/script.js"></script>
+
+  <!-- LIGHTBOX -->
+  <div class="lb" id="lb" role="dialog" aria-modal="true">
+    <div class="lb-close" id="lbClose" title="Закрыть">✕</div>
+    <div class="lb-inner">
+      <div class="lb-nav lb-prev" id="lbPrev">‹</div>
+      <img id="lbImg" src="" alt="">
+      <div class="lb-nav lb-next" id="lbNext">›</div>
+      <div class="lb-cap" id="lbCap"></div>
+    </div>
+  </div>
+
+  <script>
+    // --- FILTER ---
+    const tabs = document.querySelectorAll('.ftab');
+    const items = document.querySelectorAll('.item');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const f = tab.dataset.filter;
+        items.forEach(item => {
+          const show = f === 'all' || item.dataset.cat === f;
+          item.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    // --- LIGHTBOX ---
+    const lb = document.getElementById('lb');
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCap');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+
+    let visibleItems = () => [...items].filter(i => i.style.display !== 'none');
+    let currentIdx = 0;
+
+    function openLb(idx) {
+      const list = visibleItems();
+      currentIdx = idx;
+      const item = list[idx];
+      lbImg.src = item.dataset.img;
+      lbImg.alt = item.dataset.title;
+      lbCap.textContent = item.dataset.title + (item.dataset.sub ? ' — ' + item.dataset.sub : '');
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function navigate(dir) {
+      const list = visibleItems();
+      currentIdx = (currentIdx + dir + list.length) % list.length;
+      openLb(currentIdx);
+    }
+
+    items.forEach((item, i) => {
+      item.addEventListener('click', () => {
+        const list = visibleItems();
+        const idx = list.indexOf(item);
+        openLb(idx);
+      });
+    });
+
+    lbClose.addEventListener('click', closeLb);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    lbPrev.addEventListener('click', e => { e.stopPropagation(); navigate(-1); });
+    lbNext.addEventListener('click', e => { e.stopPropagation(); navigate(1); });
+
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  </script>
 </body>
 </html>

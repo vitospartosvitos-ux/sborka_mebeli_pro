@@ -48,3 +48,24 @@ document.addEventListener('click', e => {
   document.body.style.overflow = 'hidden';
   document.addEventListener('keydown', onKeyDown);
 });
+function pickService(serviceName) {
+  // Находим элемент формы (выпадающий список) по его тегу или классу
+  const selectElement = document.querySelector('.form select');
+  
+  if (selectElement) {
+    // Бежим по всем опциям списка
+    for (let i = 0; i < selectElement.options.length; i++) {
+      // Если текст опции содержит имя нашей услуги — выбираем её
+      if (selectElement.options[i].text.includes(serviceName) || selectElement.options[i].value.includes(serviceName)) {
+        selectElement.selectedIndex = i;
+        break;
+      }
+    }
+  }
+  
+  // Плавно скроллим клиента к блоку оформления заявки
+  const formSection = document.querySelector('.form');
+  if (formSection) {
+    formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
