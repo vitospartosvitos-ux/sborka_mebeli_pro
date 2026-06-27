@@ -176,10 +176,19 @@
     .footer{
       padding:40px 0 20px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:40px
     }
-    .stickyBar{
-      position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;width:min(700px,calc(100% - 24px));
-      display:flex;gap:8px;padding:8px;border-radius:18px;background:rgba(6,9,19,0.8);border:1px solid rgba(139,183,255,0.15);backdrop-filter:blur(20px);box-shadow:var(--shadow)
-    }
+    .stickyBar a{
+  flex:1;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center !important; /* Принудительно бьем точно по центру */
+  text-align:center;                 /* Железная страховка для мобильных браузеров */
+  padding:0 4px;                     /* Микро-отступы, чтобы буквы не терлись о границы кнопки */
+  border-radius:12px;
+  font-weight:700;
+  font-size:13px;                    /* Чуть-чуть уменьшили, чтобы на мелких экранах текст не распирал кнопку */
+  transition:0.2s transform;
+}
     .stickyBar a{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:12px;font-weight:700;font-size:14px;transition:0.2s transform}
     .stickyBar a:active{transform:scale(0.98)}
     .stickyBar .primary{background:linear-gradient(135deg,var(--acc),#9e7bff);color:#050a14;box-shadow:0 8px 25px rgba(139,183,255,0.2)}
