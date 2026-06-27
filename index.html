@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Сборка мебели в Москве. Аккуратно, быстро, с реальными фото работ. Заявки в WhatsApp и MAX.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="theme-color" content="#090d18">
+  <link rel="canonical" href="https://example.com/">
+  <title>Сборка мебели в Москве — быстро, аккуратно, с гарантией</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Сборка мебели в Москве — быстро, аккуратно, с гарантией">
+  <meta property="og:description" content="Собираем шкафы, комоды, кровати и корпусную мебель. Реальные фото работ.">
+  <meta property="og:image" content="images/hero.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Сборка мебели в Москве",
+    "areaServed":"Москва",
+    "provider":{"@type":"Organization","name":"Мастерская сборки"},
+    "serviceType":["Сборка мебели","Демонтаж мебели","Мелкий монтаж"],
+    "offers":{"@type":"Offer","priceCurrency":"RUB","price":"от 1500"}
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#090d18;
+      --card:rgba(16,22,40,.78);
+      --line:rgba(255,255,255,.08);
+      --text:#f3f6ff;
+      --muted:#a8b3cf;
+      --acc:#8bb7ff;
+      --acc2:#c79bff;
+      --shadow:0 28px 80px rgba(0,0,0,.38);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(139,183,255,.14), transparent 22%),
+        radial-gradient(circle at 85% 12%, rgba(199,155,255,.10), transparent 20%),
+        linear-gradient(180deg, #090d18 0%, #070a13 100%);
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1180px;margin:0 auto;padding:22px}
+
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+      padding:10px 0 26px
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brandMark{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,var(--acc),var(--acc2))}
+    .navlinks{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+
+    .hero{
+      display:grid;grid-template-columns:1.08fr .92fr;
+      gap:28px;align-items:center;padding:24px 0 30px
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      border:1px solid var(--line);background:rgba(255,255,255,.03);color:#dce4ff;font-size:13px
+    }
+    h1{
+      font-size:clamp(42px,6vw,78px);
+      line-height:1.02;letter-spacing:-.05em;margin:18px 0 16px;max-width:11ch
+    }
+    .lead{font-size:clamp(16px,2vw,20px);color:#dbe2f7;max-width:60ch}
+    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{
+      min-height:54px;padding:14px 20px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;
+      font-weight:700;border:1px solid transparent;transition:.22s transform,.22s box-shadow;cursor:pointer
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btnPrimary{background:linear-gradient(135deg,var(--acc),#9e7bff);color:#08101f;box-shadow:0 18px 50px rgba(139,183,255,.18)}
+    .btnGhost{background:rgba(255,255,255,.03);border-color:var(--line)}
+
+    .preview{
+      min-height:520px;border-radius:30px;background:linear-gradient(180deg, rgba(16,22,40,.86), rgba(10,14,25,.88));
+      border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;padding:22px;display:grid;align-content:end
+    }
+    .previewCard{
+      border-radius:24px;background:rgba(6,9,18,.62);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);padding:18px
+    }
+    .previewCard h3{margin:0 0 8px;font-size:18px}
+    .previewCard p{margin:0 0 14px;color:var(--muted)}
+    .previewCard ul{margin:0;padding-left:18px;color:#e7edff}
+    .trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .trust span{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--line);color:#dbe4ff;font-size:13px}
+
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0 0}
+    .stat{padding:18px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .stat b{display:block;font-size:24px;margin-bottom:6px}
+    .stat span{color:var(--muted);font-size:14px}
+
+    .section{padding:28px 0 8px;opacity:0;transform:translateY(18px);transition:.7s ease}
+    .section.show{opacity:1;transform:translateY(0)}
+    .section h2{margin:0 0 10px;font-size:clamp(26px,3vw,40px);letter-spacing:-.03em}
+    .section p.sub{margin:0 0 18px;color:var(--muted);max-width:72ch}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .mini,.step,.photo,.form{
+      padding:22px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)
+    }
+    .mini h3,.step h3,.photo h3{margin:12px 0 8px;font-size:18px}
+    .mini p,.step p,.photo p{margin:0;color:var(--muted)}
+    .icon{
+      width:46px;height:46px;border-radius:16px;display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(139,183,255,.14), rgba(199,155,255,.12));border:1px solid rgba(255,255,255,.10);font-size:22px
+    }
+
+    .photos{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px
+    }
+    .ph{
+      aspect-ratio:4/3;
+      border-radius:18px;
+      overflow:hidden;
+      background:#0b1020;
+      border:1px solid rgba(255,255,255,.08)
+    }
+    .ph img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block
+    }
+    .caption{margin-top:10px;color:var(--muted);font-size:13px}
+
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .num{font-size:13px;color:#d7dcf3}
+
+    /* ИДЕАЛЬНЫЙ СТИЛЬ ФОРМЫ (НЕ ДАЕТ РАСТЯГИВАТЬСЯ) */
+    .form {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .form h2 {
+      font-size: 28px !important;
+      margin-bottom: 4px !important;
+    }
+    .form .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+    .field label{font-size:13px;color:#cbd7ff}
+    .field input,.field textarea,.field select{
+      width:100%;background:#091022;border:1px solid rgba(255,255,255,.10);color:var(--text);border-radius:14px;padding:14px 14px;font:inherit;outline:none
+    }
+    .field textarea{min-height:110px;resize:vertical}
+    
+    /* Выравниваем кнопки внутри формы */
+    .form .ctaRow {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      width: 100%;
+    }
+    .form .ctaRow .btn {
+      flex: 1;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .footer{
+      padding:34px 0 18px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:24px
+    }
+    .stickyBar{
+      position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;width:min(1120px,calc(100% - 16px));
+      display:flex;gap:10px;padding:10px;border-radius:20px;background:rgba(7,11,23,.74);border:1px solid rgba(255,255,255,.10);backdrop-filter:blur(16px);box-shadow:var(--shadow)
+    }
+    .stickyBar a{flex:1;min-height:50px;display:flex;align-items:center;justify-content:center;border-radius:14px;font-weight:700}
+    .stickyBar .primary{background:linear-gradient(135deg,var(--acc),#9e7bff);color:#08101f}
+    .stickyBar .secondary{background:rgba(255,255,255,.03);border:1px solid var(--line)}
+
+    @media (max-width: 980px){
+      .hero,.cards,.steps{grid-template-columns:1fr}
+      .photos{grid-template-columns:1fr 1fr}
+      .stats{grid-template-columns:1fr 1fr}
+      .nav{flex-direction:column;align-items:flex-start}
+      h1{max-width:none}
+    }
+    @media (max-width: 560px){
+      .stats,.form .grid2,.photos{grid-template-columns:1fr}
+      .wrap{padding:18px}
+      .stickyBar{width:calc(100% - 12px);bottom:10px;padding:8px}
+      .stickyBar a{min-height:48px;font-size:14px}
+      .form .ctaRow { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none!important;transition:none!important}
+      .section{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<script src="script.js"></script>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <div class="brand">
+        <div class="brandMark"></div>
+        <div>Мастерская сборки</div>
+      </div>
+      <nav class="navlinks">
+        <a href="#services">Услуги</a>
+        <a href="#photos">Фото</a>
+        <a href="#process">Как работаем</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Москва • WhatsApp • MAX • Премиум сервис</span>
+        <h1>Сборка мебели без компромиссов</h1>
+        <p class="lead">Собираем шкафы, комоды, кровати и корпусную мебель. Точно по времени, аккуратно по месту и спокойно по процессу.</p>
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="#contact">Оставить заявку</a>
+          <a class="btn btnGhost" href="gallery.html">Смотреть все работы</a>
+          <a class="btn btnPrimary" href="#contact">Рассчитать стоимость</a>
+          <a class="btn btnGhost" href="https://wa.me/79990000000">WhatsApp</a>
+          <a class="btn btnGhost" href="https://max.ru/">MAX</a>
+        </div>
+        <div class="trust"><span>Ответ от 30 минут</span><span>Фото до/после</span><span>Гарантия на работу</span></div>
+        <div class="stats">
+          <div class="stat"><b>500+</b><span>собранных единиц мебели</span></div>
+          <div class="stat"><b>24/7</b><span>принимаем заявки в чат</span></div>
+          <div class="stat"><b>1 день</b><span>возможен срочный выезд</span></div>
+        </div>
+      </div>
+
+      <div class="preview">
+        <div class="previewCard">
+          <div class="eyebrow">Фото-блок вместо карусели</div>
+          <h3>Реальные работы — главный аргумент</h3>
+          <p>Покажи 10–15 лучших фото, а не карусель.</p>
+          <ul>
+            <li>1 главный кадр сверху.</li>
+            <li>Ниже сетка из фото.</li>
+            <li>Подпись: объект, срок, результат.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <h2>What we do</h2>
+      <p class="sub">Без перегруза. Только то, что нужно клиенту на старте.</p>
+      <div class="cards">
+        <article class="mini"><div class="icon">🛠</div><h3>Сборка мебели</h3><p>Шкафы, комоды, кровати, столы, тумбы и корпусная мебель.</p></article>
+        <article class="mini"><div class="icon">📦</div><h3>Демонтаж и вынос</h3><p>Разбор старой мебели, вынос и подготовка помещения.</p></article>
+        <article class="mini"><div class="icon">🔩</div><h3>Мелкий монтаж</h3><p>Навеска, подгонка и регулировка фасадов по месту.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="photos">
+      <h2>Наши реальные работы в Москве и МО</h2>
+      <p class="sub">Посмотрите примеры собранных нами шкафов и готовых офисных пространств. Работаем аккуратно, без царапин и зазоров.</p>
+
+      <div class="photos">
+        <div class="photo">
+          <div class="ph">
+            <img src="images/sborka-ofisnogo-stola-peregovorov.webp" alt="Сборка большого овального стола переговоров в офисе, Москва" loading="lazy">
+          </div>
+          <div class="caption">Большой стол для переговорных зон и конференц-залов.</div>
+        </div>
+
+        <div class="photo">
+          <div class="ph">
+            <img src="images/montazh-mebeli-v-ofise-pod-klyuch.webp" alt="Монтаж офисной мебели и угловых рабочих мест сотрудников под ключ" loading="lazy">
+          </div>
+          <div class="caption">Комплексное обустройство рабочих мест персонала у окна.</div>
+        </div>
+
+        <div class="photo">
+          <div class="ph">
+            <img src="images/montazh-vstroennogo-shkafa-kupe.webp" alt="Монтаж большого встроенного белого шкафа-купе во всю стену в квартире" loading="lazy">
+          </div>
+          <div class="caption">Встроенный минималистичный шкаф-купе под потолок.</div>
+        </div>
+
+        <div class="photo">
+          <div class="ph">
+            <img src="images/sborka-shkafa-so-vstroennym-stolom.webp" alt="Сборка белого шкафа со встроенным письменным столом и открытыми полками стеллажа" loading="lazy">
+          </div>
+          <div class="caption">Многофункциональный шкаф-трансформер со встроенным рабочим столом.</div>
+        </div>
+
+        <div class="photo">
+          <div class="ph">
+            <img src="images/sborka-knizhnogo-shkafa-vitriny.webp" alt="Профессиональная сборка классического книжного шкафа со стеклянными дверцами" loading="lazy">
+          </div>
+          <div class="caption">Шкаф-витрина для книг и посуды с идеальной регулировкой петель.</div>
+        </div>
+
+        <div class="photo">
+          <div class="ph">
+            <img src="images/sborka-mebelnogo-garnitura-stenki.webp" alt="Сборка классической стенки, шкафов и мебельного гарнитура в гостиную" loading="lazy">
+          </div>
+          <div class="caption">Сложная многокомпонентная стенка в классическом стиле.</div>
+        </div>
+
+        <div class="photo">
+          <div class="ph">
+            <img src="images/ustanovka-radiusnoj-tumby-pod-tv.webp" alt="Установка современной белой радиусной тумбы под телевизор с золотыми ручками" loading="lazy">
+          </div>
+          <div class="caption">Элегантная подвесная тумба со скругленными углами.</div>
+        </div>
+
+        <div class="photo">
+          <div class="ph">
+            <img src="images/sborka-komoda-dlya-odezhdy.webp" alt="Профессиональная сборка деревянного комода с выдвижными ящиками" loading="lazy">
+          </div>
+          <div class="caption">Вместительный комод. Четкая центровка направляющих для плавного хода.</div>
+        </div>
+      </div>
+    </section>
+        
+    <section class="section" id="process">
+      <h2>Как работаем</h2>
+      <p class="sub">Коротко и понятно, без лишних шагов.</p>
+      <div class="steps">
+        <article class="step"><div class="num">01</div><h3>Заявка</h3><p>Вы пишете в WhatsApp, MAX или через форму.</p></article>
+        <article class="step"><div class="num">02</div><h3>Уточнение</h3><p>Мы уточняем мебель, адрес, срок и детали.</p></article>
+        <article class="step"><div class="num">03</div><h3>Выезд</h3><p>Согласуем время и отправляем мастера.</p></article>
+        <article class="step"><div class="num">04</div><h3>Результат</h3><p>Собираем мебель, делаем фото и закрываем заказ.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Оставить заявку</h2>
+      <p class="sub">Короткая форма без лишних полей.</p>
+      <form class="form">
+        <h2>Быстрый расчёт</h2>
+        <p style="margin:0 0 18px;color:var(--muted)">Оставьте данные, и мы свяжемся с вами.</p>
+        <div class="grid2">
+          <div class="field"><label>Имя</label><input type="text" placeholder="Ваше имя"></div>
+          <div class="field"><label>Телефон</label><input type="tel" placeholder="+7 (___) ___-__-__"></div>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label>Услуга</label>
+            <select>
+              <option>Сборка мебели</option>
+              <option>Демонтаж мебели</option>
+              <option>Мелкий монтаж</option>
+            </select>
+          </div>
+          <div class="field"><label>Район</label><input type="text" placeholder="Например, Москва, ЮЗАО"></div>
+        </div>
+        <div class="field"><label>Комментарий</label><textarea placeholder="What to assemble, when, is there an elevator, are there photos available"></textarea></div>
+        <div class="ctaRow">
+          <button class="btn btnPrimary" type="button">Отправить заявку</button>
+          <a class="btn btnGhost" href="https://wa.me/79990000000">WhatsApp</a>
+          <a class="btn btnGhost" href="https://max.ru/">MAX</a>
+        </div>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <div>© 2026 Мастерская сборки</div>
+      <div>Москва • Сборка мебели • Быстрые заявки</div>
+    </footer >
+  </div>
+
+  <div class="stickyBar">
+    <a class="secondary" href="https://wa.me/79990000000">WhatsApp</a>
+    <a class="primary" href="#contact">Оставить заявку</a>
+    <a class="secondary" href="https://max.ru/">MAX</a>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.14 });
+    sections.forEach(s => io.observe(s));
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>

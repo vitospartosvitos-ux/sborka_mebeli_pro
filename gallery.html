@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Галерея работ по сборке мебели в Москве. Реальные фото, аккуратный монтаж, выезд в день заявки.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="theme-color" content="#090d18">
+  <link rel="canonical" href="https://example.com/gallery.html">
+  <title>Фото работ — Сборка мебели в Москве</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root{
+      --bg:#090d18;
+      --card:rgba(16,22,40,.78);
+      --line:rgba(255,255,255,.08);
+      --text:#f3f6ff;
+      --muted:#a8b3cf;
+      --acc:#8bb7ff;
+      --acc2:#c79bff;
+      --shadow:0 28px 80px rgba(0,0,0,.38);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(139,183,255,.14), transparent 22%),
+        radial-gradient(circle at 85% 12%, rgba(199,155,255,.10), transparent 20%),
+        linear-gradient(180deg, #090d18 0%, #070a13 100%);
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1180px;margin:0 auto;padding:22px}
+    .top{
+      display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+      padding:10px 0 26px
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brandMark{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,var(--acc),var(--acc2))}
+    .back{
+      padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.03);
+      border:1px solid var(--line);font-weight:700
+    }
+    h1{
+      font-size:clamp(34px,5vw,64px);
+      line-height:1.03;letter-spacing:-.05em;margin:10px 0 10px
+    }
+    .lead{color:var(--muted);max-width:72ch;font-size:18px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:26px
+    }
+    .item{
+      border-radius:22px;
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      overflow:hidden
+    }
+    .ph{
+      aspect-ratio:4/3;
+      background:#0b1020
+    }
+    .ph img{
+      width:100%;height:100%;object-fit:cover;display:block
+    }
+    .cap{
+      padding:14px 14px 16px;
+      color:var(--muted);
+      font-size:13px
+    }
+    .cta{
+      margin-top:28px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap
+    }
+    .btn{
+      min-height:52px;padding:14px 18px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;
+      font-weight:700;border:1px solid transparent
+    }
+    .primary{background:linear-gradient(135deg,var(--acc),#9e7bff);color:#08101f}
+    .ghost{background:rgba(255,255,255,.03);border-color:var(--line)}
+    .footer{
+      padding:34px 0 18px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:34px
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 560px){ .grid{grid-template-columns:1fr} .wrap{padding:18px} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand"><div class="brandMark"></div><div>Мастерская сборки</div></div>
+      <a class="back" href="index.html">← На главную</a>
+    </div>
+
+    <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#dce4ff;font-size:13px;">Фото работ • Москва • Реальные объекты</span>
+    <h1>Галерея работ</h1>
+    <p class="lead">Здесь можно показать все 20 фото. Выбирай только лучшие кадры: чистые, ровные, без визуального шума. Подписи делай короткими и конкретными.</p>
+
+    <div class="grid">
+      <div class="item"><div class="ph"><img src="images/work-01.jpg" alt="Сборка шкафа в Москве"></div><div class="cap">Шкаф-купе, Москва.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-02.jpg" alt="Сборка кровати в Москве"></div><div class="cap">Кровать, аккуратная сборка.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-03.jpg" alt="Сборка комода в Москве"></div><div class="cap">Комод, выезд в день заявки.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-04.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Корпусная мебель, чистый монтаж.</div></div>
+
+      <div class="item"><div class="ph"><img src="images/work-05.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Комплект мебели, Москва.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-06.jpg" alt="Монтаж мебели в Москве"></div><div class="cap">Монтаж и регулировка.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-07.jpg" alt="Сборка кухни в Москве"></div><div class="cap">Кухонный модуль.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-08.jpg" alt="Разбор мебели в Москве"></div><div class="cap">Разбор и вынос.</div></div>
+
+      <div class="item"><div class="ph"><img src="images/work-09.jpg" alt="Сборка шкафа в Москве"></div><div class="cap">Шкаф, ровная сборка.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-10.jpg" alt="Сборка комода в Москве"></div><div class="cap">Комод, финальная проверка.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-11.jpg" alt="Сборка кровати в Москве"></div><div class="cap">Кровать, аккуратная подгонка.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-12.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Корпусная мебель.</div></div>
+
+      <div class="item"><div class="ph"><img src="images/work-13.jpg" alt="Сборка шкафа в Москве"></div><div class="cap">Шкаф, выезд в день заявки.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-14.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Чистый монтаж.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-15.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Финальный результат.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-16.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Аккуратная установка.</div></div>
+
+      <div class="item"><div class="ph"><img src="images/work-17.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Проект под ключ.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-18.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Сборка и уборка.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-19.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Монтаж по месту.</div></div>
+      <div class="item"><div class="ph"><img src="images/work-20.jpg" alt="Сборка мебели в Москве"></div><div class="cap">Готовый результат.</div></div>
+    </div>
+
+    <div class="cta">
+      <a class="btn primary" href="Lending.html#contact">Оставить заявку</a>
+      <a class="btn ghost" href="https://wa.me/79990000000">WhatsApp</a>
+    </div>
+
+    <footer class="footer">
+      <div>© 2026 Мастерская сборки</div>
+      <div>Москва • Сборка мебели • Фото работ</div>
+    </footer>
+  </div>
+   <script src="js/script.js"></script>
+</body>
+</html>
